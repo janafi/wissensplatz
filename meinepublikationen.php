@@ -44,6 +44,40 @@
             </div>
         </div>
     </nav>
+
+    <!--Tabelle "Meine Publikationen"-->
+    <div class="container">
+      <h2>Meine Publikationen</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Titel</th>
+            <th>Hochgeladen am</th>
+            <th>Status</th>
+            <th>Bearbeiten</th>
+            <th><span class="glyphicon glyphicon-trash" area-hidden="true"></span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+          </tr>
+          <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!--Bootsrtap-->
