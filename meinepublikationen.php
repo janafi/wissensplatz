@@ -1,3 +1,21 @@
+<?php
+  session_start(); //Session starten, oder bereits laufende Session aufrecht halten
+  if (!isset($_SESSION['id'])) {
+    header('Location: index.php'); //Wenn die vorherige Session nicht läuft, also keine Anmeldedaten eingegeben wurde, wird zurück auf index.php geleitet. Durch eine solche Session kann Seite abgesichert werden!
+  }else {
+    $user_id = $_SESSION['id'];
+  }
+
+  require_once('system/data.php');
+  require_once('system/security.php');
+
+
+// Meine Publikationen anzeigen
+
+  $post_list = get_posts($user_id);
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="De">
 
@@ -46,37 +64,24 @@
     </nav>
 
     <!--Tabelle "Meine Publikationen"-->
-    <div class="container">
-      <h2>Meine Publikationen</h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Titel</th>
-            <th>Hochgeladen am</th>
-            <th>Status</th>
-            <th>Bearbeiten</th>
-            <th><span class="glyphicon glyphicon-trash" area-hidden="true"></span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr>
-          <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-          </tr>
-          <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <?php
+    echo "<table>";
+       while($post = mysqli_fetch_assoc($post_list)) {
+      echo "<tr>";
+        echo "<th>", "Titel", "</th>";
+        echo "<th>", "Autor", "</th>";
+        echo "<th>", "Themenbereich", "</th>";
+      echo "</tr>";
+      echo "<tr>";
+        echo "<td>", $post['titel'], "</td>";
+        echo "<td>", $post['autor'], "</td>";
+        echo "<td>", $post['themenbereich'], "</td>";
+      echo "</tr>";
+    }
+    echo "</table>";
+    ?>
+
+         <!-- Beitrag -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

@@ -11,7 +11,7 @@ function get_db_connection() //Funktion zur Verbindungsherstellung zur DB, zentr
 function get_result($sql)
 {
   $db = get_db_connection();
-  // echo $sql; // Wenn was nicht funktioniert, wird der SQL String ausgegeben.
+  echo $sql; // Wenn was nicht funktioniert, wird der SQL String ausgegeben.
   $result = mysqli_query($db, $sql); // Allgemeingültige Funktion, mit der man an Datenbankverbindung einen beliebigen SQL-String senden kann
   mysqli_close($db);
   return $result;
@@ -33,5 +33,17 @@ function register($email, $password)
 $sql = "INSERT INTO user (email, password) VALUES ('$email', '$password');";
 return get_result($sql);
 }
+
+
+/* **************************************************************************************************
+/* Publikationen anzeigen meinepublikationen.php
+/* *********************************************************************************************** */
+
+function get_posts($user_id)
+  {
+    $sql = "SELECT autor, titel, themenbereich FROM `publikationen` , themenbereich WHERE user_id = $user_id
+            AND publikationen.themenbereich_id = themenbereich.themenbereich_id;";
+    return get_result($sql);
+  }
 
 ?>
