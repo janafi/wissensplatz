@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,300italic' rel='stylesheet' type='text/css'>
 </head>
 
-<body>
+<body class="body.index">
 
 <!-- Login Code -->
 <div class="container">

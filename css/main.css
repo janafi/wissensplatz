@@ -3,13 +3,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-img {
-    max-width: 100%;
-}
-
-
-/* um über carousel zu legen */
-
 .navbar {
     z-index: 99;
     border-radius: 0;
@@ -20,10 +13,12 @@ img {
     color: white;
 }
 
+/* auskommentierte Klasse
 a {
     color: white;
     text-decoration: none;
 }
+*/
 
 .glyphicon glyphicon-search {
     align-content: flex-end;
@@ -56,10 +51,8 @@ a {
 
 
 /*** LOGIN Seite ***/
-body, html {
-    height: 100%;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+.body.index {
+    background-color: #4798b1;
 }
 
 .card-container.card {
@@ -69,7 +62,7 @@ body, html {
 
 /** Card component */
 .card {
-    background-color: #F7F7F7;
+    background-color: #4798b1;
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -181,128 +174,6 @@ body, html {
 
 /*** LOGIN fertig */
 
-
-/*Accordion auf Projektreport Seite*/
-
-.panel-heading .accordion-toggle:after {
-    font-family: 'Glyphicons Halflings';
-    /*Wichtig für die Pfeile */
-    content: "\e114";
-    float: right;
-    color: white;
-}
-
-.panel-heading .accordion-toggle.collapsed:after {
-    /* symbol für zugeklappte Pfeile */
-    content: "\e080";
-}
-
-.panel-group .panel-heading {
-    background-color: rgba(217, 239, 240, 0.7);
-}
-
-.panel-title {
-    color: #416465;
-}
-
-.panel-default {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 0px;
-}
-
-
-/*Accordion auf Projektreport Seite*/
-
-
-/* Slider Startseite*/
-
-.carousel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.carousel .item {
-    background-size: cover;
-    background-position: center;
-}
-
-.logo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    max-width: 80%;
-    width: 200px;
-}
-
-.item,
-.active,
-.carousel-inner {
-    height: 100%;
-}
-
-
-/* Hintergrundbild bei Slider -- Bilder sind im HTML verlinkt. */
-
-.fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-.media-object {
-    position: center;
-    top: 20px;
-    left: 0;
-    width: 50%;
-    height: 50%;
-}
-
-
-/* Hintergrundbild bei Slider -- Bilder sind im HTML verlinkt. */
-
-/* Body für Angebotsseite */
-
-.angebote {
-    background-color: #f3fafa;
-}
-/*Body für Offerte-Seite*/
-
-.offerte {
-    background-image: url("../images/summerlands_cliffs.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-
-/*Body für Offerte-Seite*/
-
-
-/*Wrapper Formular*/
-
-.form-wrapper {
-    float: none;
-    margin: 0 auto;
-    padding-top: 40px;
-    padding-right: 60px;
-    padding-bottom: 10px;
-    padding-left: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-
-/*Wrapper Formular*/
-
-
 /*Labelinplace - Formularfelder */
 
 .mygroup label {
@@ -325,384 +196,17 @@ body, html {
 
 /*Labelinplace - Formularfelder */
 
-
-/*Flugzeug Button*/
-
-.plane {
-    width: 150px;
-    text-align: right;
-    color: #FFFFFF;
-    background-color: #3F9698;
-}
-
-.plane img {
-    width: 30px;
-    box-sizing: content-box;
-    padding-right: 20px;
-    -webkit-transition: .3s all ease;
-    transition: .3s all ease;
-}
-
-.plane span {
-    width: calc(100% - 20px);
-    text-align: left;
-    display: inline-block;
-}
-
-.plane:hover img {
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.plane:hover,
-.plane:focus,
-.plane:active,
-.plane.active,
-.open .dropdown-toggle.btn-custom {
-    color: #FFFFFF;
-    background-color: #28d2d6;
-    border-color: ;
-}
-
-.plane-icon {
-    color: white;
-}
-
-
-/*Flugzeug Button*/
-
-
-/* Rentier Button*/
-
-.deer {
-    width: 150px;
-    text-align: right;
-    color: #FFFFFF;
-    background-color: #3F9698;
-    border-color: ;
-}
-
-.deer img {
-    width: 30px;
-    box-sizing: content-box;
-    padding-right: 20px;
-    -webkit-transition: .3s all ease;
-    transition: .3s all ease;
-}
-
-.deer span {
-    width: calc(100% - 20px);
-    text-align: left;
-    display: inline-block;
-}
-
-.deer:hover img {
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.deer:hover,
-.deer:focus,
-.deer:active,
-.deer.active,
-.open .dropdown-toggle.btn-custom {
-    color: #FFFFFF;
-    background-color: #28d2d6;
-    border-color: ;
-}
-
-
-/* Rentier Button*/
-
-
-/* Bär Button*/
-
-.bear {
-    width: 150px;
-    text-align: right;
-    color: #FFFFFF;
-    background-color: #3F9698;
-    border-color: ;
-}
-
-.bear img {
-    width: 30px;
-    box-sizing: content-box;
-    padding-right: 20px;
-    -webkit-transition: .3s all ease;
-    transition: .3s all ease;
-}
-
-.bear span {
-    width: calc(100% - 20px);
-    text-align: left;
-    display: inline-block;
-}
-
-.bear:hover img {
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.bear:hover,
-.bear:focus,
-.bear:active,
-.bear.active,
-.open .dropdown-toggle.btn-custom {
-    color: #FFFFFF;
-    background-color: #28d2d6;
-    border-color: ;
-}
-/*Bär Button*/
-
-
-/* Koala Button*/
-
-.koala {
-    width: 150px;
-    text-align: right;
-    color: #FFFFFF;
-    background-color: #3F9698;
-    border-color: ;
-}
-
-.koala img {
-    width: 30px;
-    box-sizing: content-box;
-    padding-right: 20px;
-    -webkit-transition: .3s all ease;
-    transition: .3s all ease;
-}
-
-.koala span {
-    width: calc(100% - 20px);
-    text-align: left;
-    display: inline-block;
-}
-
-.koala:hover img {
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.koala:hover,
-.koala:focus,
-.koala:active,
-.koala.active,
-.open .dropdown-toggle.btn-custom {
-    color: #FFFFFF;
-    background-color: #28d2d6;
-    border-color: ;
-}
-
-
-/*Koala Button*/
-
-
-/*Body für Kontakt-Seite*/
-
-.kontakt {
-    background-image: url("../images/lighthouse.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-
-/*Wrapper Kontakt-Seite*/
-
-.contact-wrapper {
-    float: none;
-    margin: 0 auto;
-    padding-top: 60px;
-    padding-right: 60px;
-    padding-bottom: 150px;
-    padding-left: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-
 /*Symbole Kontakt*/
 
 .glyphicon {
     font-size: 40px;
 }
 
-
-/*Body für Projektreport-Seite*/
-
-.projektreport {
-    background-image: url("../images/desert_highway.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-.col-no-margin {
-    margin-top: 0;
-}
-
-
 /*Abstand nach Row*/
 
 .row {
     padding: 15px 0;
 }
-
-
-/*Image Lightbox*/
-
-#imagelightbox {
-    cursor: pointer;
-    position: fixed;
-    z-index: 10000;
-    -ms-touch-action: none;
-    touch-action: none;
-}
-
-@-webkit-keyframes clockwise {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes clockwise {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes anticlockwise {
-    0% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-    100% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-}
-
-@keyframes anticlockwise {
-    0% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-    100% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-}
-
-.lightbox-loader {
-    border-radius: 50%;
-    width: 2.5em;
-    height: 2.5em;
-    background-color: transparent;
-    position: fixed;
-    z-index: 10003;
-    top: 50%;
-    left: 50%;
-    padding: 0.625em;
-    margin: -1.25em 0 0 -1.25em;
-}
-
-.lightbox-loader div {
-    -webkit-animation: clockwise 1.5s linear infinite;
-    animation: clockwise 1.5s linear infinite;
-    display: block;
-    height: 2em;
-    position: relative;
-    width: 2em;
-}
-
-.lightbox-loader div,
-.lightbox-loader div:before,
-.lightbox-loader div:after {
-    border: .2em solid transparent;
-    border-radius: 50%;
-    border-top-color: white;
-    margin: auto;
-}
-
-.lightbox-loader div:before,
-.lightbox-loader div:after {
-    content: '';
-    position: absolute;
-}
-
-.lightbox-loader div:before {
-    -webkit-animation: anticlockwise .9s linear infinite;
-    animation: anticlockwise .9s linear infinite;
-    top: -.6em;
-    right: -.6em;
-    bottom: -.6em;
-    left: -.6em;
-}
-
-.lightbox-loader div:after {
-    -webkit-animation: anticlockwise .66s linear infinite;
-    animation: anticlockwise .66s linear infinite;
-    top: .3em;
-    right: .3em;
-    bottom: .3em;
-    left: .3em;
-}
-
-.lightbox-overlay {
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-.lightbox-arrow {
-    width: 50px;
-    height: 50px;
-    font-size: 0;
-    position: fixed;
-    top: calc(50% - 15px);
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    z-index: 9999;
-}
-
-.lightbox-arrow:hover {
-    cursor: pointer;
-    opacity: .8;
-}
-
-.lightbox-left {
-    left: 60px;
-    border-left: 5px solid white;
-    border-bottom: 5px solid white;
-}
-
-.lightbox-right {
-    right: 60px;
-    border-right: 5px solid white;
-    border-top: 5px solid white;
-}
-
-
-/*Image Lightbox*/
-
-
 
 html {
   position: relative;
@@ -715,10 +219,6 @@ footer {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 40px;
-}
-
-.text-muted {
-    color: white;
 }
 
 .tooltip.bottom .tooltip-arrow {
