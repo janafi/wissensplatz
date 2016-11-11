@@ -57,7 +57,7 @@ a {
 }
 
 .card-container.card {
-    max-width: 350px;
+    max-width: 600px;
     padding: 40px 40px;
 }
 
@@ -88,9 +88,16 @@ a {
 }
 
 /** Form styles*/
-.profile-name-card {
-    font-size: 16px;
+.login-header {
+    font-size: 36px;
     font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.login-text {
+    font-size: 14px;
     text-align: center;
     margin: 10px 0 0;
     min-height: 1em;
