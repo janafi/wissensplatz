@@ -44,6 +44,40 @@
             </div>
         </div>
     </nav>
+<h2> Dokument hochladen</h2>
+<div class="container-fluid">
+       <div class="col-md-3 form-wrapper">
+<div class="form-group">
+      <label for="title">Titel</label>
+      <input type="text" class="form-control" id="title" placeholder="Titel">
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input type="text" class="form-control" id="autor" placeholder="Autor">
+    </div>
+    <div class="form-group">
+      <label for="Veröffentlichungsdatum">Veröffentlichungsdatum</label>
+      <input type="date" class="form-control" id="datum" placeholder="datum">
+    </div>
+    <label class="select">Themenbereich</label>
+               <select class="form-control" name="themenbereich">
+                   <option>Wirtschaft</option>
+                   <option>Medien</option>
+                   <option>Drogen</option>
+                   <option>Finanzen</option>
+                   <option>Soziales</option>
+                   <option>Liebe</option>
+                   <option>MakeAmericaGreatAgain</option>
+             </select>
+             <label class="custom-file">
+  <input type="file" id="file" class="custom-file-input">
+  <span class="custom-file-control"></span>
+</label>
+<button class="btn btn-default" type="submit">
+                        <span>Hochladen</span>
+                    </button>
+
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
