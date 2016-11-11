@@ -63,7 +63,7 @@ a {
 
 /** Card component */
 .card {
-    background-color: red;
+    background-color: white;
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
