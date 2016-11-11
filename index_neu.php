@@ -25,7 +25,7 @@ session_start();
         $user = mysqli_fetch_assoc ($result); //Aus Result wird ein Array gemacht und schreibt das in den User
         session_start(); //Session initalisiert, jeder, der sich anmeldet, bekommt eine Session-ID, die dann gespeichert und bei einer Rückker wieder abgefragt werden kann. SO hat jeder Nutzer eine eigene ID, und kann identifiziert werden.
         $_SESSION['id'] = $user['user_id']; //Zugriff auf user_id aus der DB
-        header ("Location: index.html"); //Wenn "email" und "password" stimmen, wird weiter geleitet an home.php
+        header ("Location: index.php"); //Wenn "email" und "password" stimmen, wird weiter geleitet an home.php
       }else {
         $error = true;
         $error_msg .= "Leider konnten wir ihre Email Adresse oder ihr Passwort nicht finden <br/>";// Wenn etwas falsch ist, erscheint Fehlermeldung
