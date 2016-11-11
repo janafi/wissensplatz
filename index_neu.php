@@ -1,3 +1,46 @@
+<?php
+session_start();
+  if(isset($_SESSION['id'])) unset($_SESSION['id']);
+  session_destroy();
+
+  require_once('system/data.php'); //Stellt Verbindung zu data.php her, worüber die Verbindung zur DB hergestellt wird.
+  require_once('system/security.php');
+  $error = false;
+  $error_msg = "";
+  $success = false;
+  $success_msg = "";
+
+
+// Code für Log-In
+  if (isset($_POST['login-submit'])) { // Wenn login-submit ausgefüllt ist (teil von Formular), dann sollen folgende Bedingungen ausgeführt werden. Sonst würde Fehlermeldung bereits beim 1. Mal laden der Site auftauchen.
+echo "step 1";
+    if (!empty($_POST['email']) && !empty($_POST['password'])){
+      $email = filter_data($_POST['email']);
+      $password = filter_data($_POST['password']); //Wenn die Werte "email" und "password" nicht leer sind, werden sie in eine Variable ($email, $password) geschrieben
+
+      $result = login($email, $password); //Resultat soll aus der Funktion login geholt werden (in data.php)
+
+      $row_count = mysqli_num_rows($result); //Zählt Ergebnisse aus, wenn genau eines ist, dann soll Nutzer weitergeleitet werden können
+
+      if($row_count == 1){ //-> Wenn Überprüfung der Eingaben email/pas}swort genau 1 Ergebnis/ein Treffer in der DB hat, dann kann sich User einloggen
+        $user = mysqli_fetch_assoc ($result); //Aus Result wird ein Array gemacht und schreibt das in den User
+        session_start(); //Session initalisiert, jeder, der sich anmeldet, bekommt eine Session-ID, die dann gespeichert und bei einer Rückker wieder abgefragt werden kann. SO hat jeder Nutzer eine eigene ID, und kann identifiziert werden.
+        $_SESSION['id'] = $user['user_id']; //Zugriff auf user_id aus der DB
+        header ("Location: index.html"); //Wenn "email" und "password" stimmen, wird weiter geleitet an home.php
+      }else {
+        $error = true;
+        $error_msg .= "Leider konnten wir ihre Email Adresse oder ihr Passwort nicht finden <br/>";// Wenn etwas falsch ist, erscheint Fehlermeldung
+    }
+      }else{
+      $error = true;
+    $error_msg .= "Bitte füllen sie beide Felder aus. <br/>"; //Wenn gar nichts reingeschrieben, erscheint Fehlermeldung
+  }
+}
+echo "step 0";
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="De">
 <head>
@@ -18,16 +61,16 @@
 <body class="body-index">
 <!--http://bootsnipp.com/snippets/featured/google-style-login-extended-with-html5-localstorage -->
 
-<!-- Login Code -->
+<!-- Login-Formular Code -->
 <div class="container">
         <div class="card card-container">
             <p id="login-title" class="login-header"> WIP - Wissensplatz</p>
             <p id="login-text" class="login-text">Um sich anmelden zu können,<br>müssen Sie Mitarbeiter am Insititut für Multimedia Production sein.</p>
-            <form class="form-signin">
+            <form class="form-signin" action="<?php echo $_SERVER["PHP_SELF"]?>" method="post">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="HTW E-Mail" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Passwort" required>
-                <button class=".btn.btn-signin" type="submit">Einloggen</button>
+                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="HTW E-Mail" required autofocus>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Passwort" required>
+                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="einloggen">
             </form><!-- /form -->
         </div><!-- /card-container -->
     </div><!-- /container -->
