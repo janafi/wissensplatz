@@ -11,7 +11,7 @@ function get_db_connection() //Funktion zur Verbindungsherstellung zur DB, zentr
 function get_result($sql)
 {
   $db = get_db_connection();
-  echo $sql; // Wenn was nicht funktioniert, wird der SQL String ausgegeben.
+  // echo $sql; // Wenn was nicht funktioniert, wird der SQL String ausgegeben.
   $result = mysqli_query($db, $sql); // Allgemeingültige Funktion, mit der man an Datenbankverbindung einen beliebigen SQL-String senden kann
   mysqli_close($db);
   return $result;
@@ -22,9 +22,9 @@ function get_result($sql)
 /* Login index.php
 /* *********************************************************************************************** */
 
-function login($email, $password) // Der Funktion wird die Variable email und password übergeben,
+function login($email, $password, $institut = "IMP") // Der Funktion wird die Variable email und password übergeben, zudem muss in der Spalte "institut" der Wert IMP stehen
 {
-    $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password';";//Datenbank abfragen, ob es in der und der Tabelle die du die Angaben hat. Mit doppelten Anführungszeichen kann man Variablen einsetzen! Um Variablen braucht es einfache Anführungszeichen, denn nach EIngabe des Users steht dort ja ein Wort/Zahl -> String
+    $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password' AND institut = '$institut';";//Datenbank abfragen, ob es in der und der Tabelle die du die Angaben hat. Mit doppelten Anführungszeichen kann man Variablen einsetzen! Um Variablen braucht es einfache Anführungszeichen, denn nach EIngabe des Users steht dort ja ein Wort/Zahl -> String
     return get_result($sql);
 }
 // Funktion "login" sendet $sql array an funciton get_result, die holt aus der function get_db_connection die DB Verbindung. dann gibt get_result die Resultate wieder an login.

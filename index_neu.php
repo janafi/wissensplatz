@@ -11,15 +11,17 @@ session_start();
   $success_msg = "";
 
 
+
 // Code für Log-In
   if (isset($_POST['login-submit'])) { // Wenn login-submit ausgefüllt ist (teil von Formular), dann sollen folgende Bedingungen ausgeführt werden. Sonst würde Fehlermeldung bereits beim 1. Mal laden der Site auftauchen.
       if (!empty($_POST['email']) && !empty($_POST['password'])){
       $email = filter_data($_POST['email']);
       $password = filter_data($_POST['password']); //Wenn die Werte "email" und "password" nicht leer sind, werden sie in eine Variable ($email, $password) geschrieben
 
-      $result = login($email, $password); //Resultat soll aus der Funktion login geholt werden (in data.php)
+      $result = login($email, $password, $institut = "IMP"); //Resultat soll aus der Funktion login geholt werden (in data.php)
 
       $row_count = mysqli_num_rows($result); //Zählt Ergebnisse aus, wenn genau eines ist, dann soll Nutzer weitergeleitet werden können
+
 
       if($row_count == 1){ //-> Wenn Überprüfung der Eingaben email/pas}swort genau 1 Ergebnis/ein Treffer in der DB hat, dann kann sich User einloggen
         $user = mysqli_fetch_assoc ($result); //Aus Result wird ein Array gemacht und schreibt das in den User
