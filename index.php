@@ -27,15 +27,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">WIP</a>
+                <a class="navbar-brand" href="index.php">WIP</a>
             </div>
 
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="hochladen.html">Hochladen </a></li>
-                    <li><a href="meinepublikationen.html">Meine Publikationen</a></li>
-                    <li><a href="publisuchen.html">Nach Publikationen suchen</a></li>
+                    <li><a href="hochladen.php">Hochladen </a></li>
+                    <li><a href="meinepublikationen.php">Meine Publikationen</a></li>
+                    <li><a href="publisuchen.php">Nach Publikationen suchen</a></li>
                     <!--<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <a href="#" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-user"></span> User
@@ -44,10 +44,27 @@
             </div>
         </div>
     </nav>
+    <div class="container-fluid">
+    <div class="row"></div>
+    <div class="row">
+       <div class="col-md-6 form-wrapper">
+        <form action="/file-upload"
+      class="dropzone"
+      id="my-awesome-dropzone" >
+           </form>
+        </div>
+        </div>
+    </div>
+
+
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!--Bootsrtap-->
     <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/dropzone.js"></script>
+
 </body>
 
 </html>
