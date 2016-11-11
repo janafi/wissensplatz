@@ -27,7 +27,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">WIP</a>
+                <a class="navbar-brand" href="home.php">WIP</a>
             </div>
 
             <!-- Menu -->
