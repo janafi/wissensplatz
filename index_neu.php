@@ -13,8 +13,7 @@ session_start();
 
 // Code für Log-In
   if (isset($_POST['login-submit'])) { // Wenn login-submit ausgefüllt ist (teil von Formular), dann sollen folgende Bedingungen ausgeführt werden. Sonst würde Fehlermeldung bereits beim 1. Mal laden der Site auftauchen.
-echo "step 1";
-    if (!empty($_POST['email']) && !empty($_POST['password'])){
+      if (!empty($_POST['email']) && !empty($_POST['password'])){
       $email = filter_data($_POST['email']);
       $password = filter_data($_POST['password']); //Wenn die Werte "email" und "password" nicht leer sind, werden sie in eine Variable ($email, $password) geschrieben
 
@@ -36,7 +35,6 @@ echo "step 1";
     $error_msg .= "Bitte füllen sie beide Felder aus. <br/>"; //Wenn gar nichts reingeschrieben, erscheint Fehlermeldung
   }
 }
-echo "step 0";
  ?>
 
 
