@@ -65,20 +65,28 @@
 
     <!--Tabelle "Meine Publikationen"-->
     <?php
-    echo "<table>";
+    echo "<div class='container'>";
+    echo "<h2>Meine Publikationen</h2>";
+  echo "<table class='table'>";
+    echo  "<thead>";
+      echo  "<tr>";
+      echo "<th>Titel</th>";
+        echo "<th>Autor</th>";
+      echo "<th>Themenbereich</th>";
+      echo  "</tr>";
+    echo "</thead>";
+    echo  "<tbody>";
        while($post = mysqli_fetch_assoc($post_list)) {
-      echo "<tr>";
-        echo "<th>", "Titel", "</th>";
-        echo "<th>", "Autor", "</th>";
-        echo "<th>", "Themenbereich", "</th>";
-      echo "</tr>";
+
       echo "<tr>";
         echo "<td>", $post['titel'], "</td>";
         echo "<td>", $post['autor'], "</td>";
         echo "<td>", $post['themenbereich'], "</td>";
       echo "</tr>";
     }
-    echo "</table>";
+  echo  "</tbody>";
+echo "</table>";
+echo  "</div>";
     ?>
 
          <!-- Beitrag -->
