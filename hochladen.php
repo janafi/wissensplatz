@@ -1,3 +1,34 @@
+<?php
+  session_start(); //Session starten, oder bereits laufende Session aufrecht halten
+  if (!isset($_SESSION['id'])) {
+    header('Location: index.php'); //Wenn die vorherige Session nicht läuft, also keine Anmeldedaten eingegeben wurde, wird zurück auf index.php geleitet. Durch eine solche Session kann Seite abgesichert werden!
+  }else {
+    $user_id = $_SESSION['id'];
+  }
+
+  require_once('system/data.php');
+  require_once('system/security.php');
+
+
+//Code für Hochladen
+  if (isset($_POST['hochalden'])) {
+    if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+
+    if(upload($titel, $autor /*, $datum, $themenbereich*/)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
+          $success = true;
+          $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
+      }else {
+        $error = true;
+        $error_msg .= "Es gibt ein Problem mit der Datenbank. <br/>";
+      }
+    }else {
+    $error = true;
+    $error_msg .= "Bitte überprüfen Sie ihre Eingaben. <br/>";
+      }
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="De">
 
@@ -44,23 +75,26 @@
             </div>
         </div>
     </nav>
+
+<!-- Hochlade-Formular -->
 <h2> Dokument hochladen</h2>
 <div class="container-fluid">
        <div class="col-md-3 form-wrapper">
+<form id="upload-form" action="hochladen.php" method="post" role="form">
 <div class="form-group">
       <label for="title">Titel</label>
-      <input type="text" class="form-control" id="title" placeholder="Titel">
+      <input type="text" name="titel" id="title" class="form-control" placeholder="Titel">
     </div>
     <div class="form-group">
       <label for="autor">Autor</label>
-      <input type="text" class="form-control" id="autor" placeholder="Autor">
+      <input type="text" name="autor" id="autor" class="form-control" placeholder="Autor">
     </div>
     <div class="form-group">
       <label for="Veröffentlichungsdatum">Veröffentlichungsdatum</label>
-      <input type="date" class="form-control" id="datum" placeholder="datum">
+      <input type="date" name="datum" id="datum" class="form-control" placeholder="datum">
     </div>
     <label class="select">Themenbereich</label>
-               <select class="form-control" name="themenbereich">
+               <select class="form-control" name="themenbereich" id="themenbereich">
                    <option>Wirtschaft</option>
                    <option>Medien</option>
                    <option>Drogen</option>
@@ -70,10 +104,10 @@
                    <option>MakeAmericaGreatAgain</option>
              </select>
              <label class="custom-file">
-  <input type="file" id="file" class="custom-file-input">
+  <input type="file" name="file" id="file" class="custom-file-input">
   <span class="custom-file-control"></span>
 </label>
-<button class="btn btn-default" type="submit">
+<button type="submit" name="upload-submit" id="upload-submit" class="btn btn-default">
                         <span>Hochladen</span>
                     </button>
 

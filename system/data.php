@@ -46,4 +46,17 @@ function get_posts($user_id)
     return get_result($sql);
   }
 
+
+  /* **************************************************************************************************
+  /* Publikation hochladen auf hochladen.php
+  /* *********************************************************************************************** */
+
+  function upload($titel, $autor)
+  {
+  $sql = "INSERT INTO publikationen (titel, autor) VALUES ('$titel', '$autor');";
+  return get_result($sql);
+
+  }
+
+
 ?>
