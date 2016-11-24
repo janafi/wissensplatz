@@ -27,13 +27,6 @@ function login($email, $password, $institut = "IMP") // Der Funktion wird die Va
     $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password' AND institut = '$institut';";//Datenbank abfragen, ob es in der und der Tabelle die du die Angaben hat. Mit doppelten Anführungszeichen kann man Variablen einsetzen! Um Variablen braucht es einfache Anführungszeichen, denn nach EIngabe des Users steht dort ja ein Wort/Zahl -> String
     return get_result($sql);
 }
-// Funktion "login" sendet $sql array an funciton get_result, die holt aus der function get_db_connection die DB Verbindung. dann gibt get_result die Resultate wieder an login.
-function register($email, $password)
-{
-$sql = "INSERT INTO user (email, password) VALUES ('$email', '$password');";
-return get_result($sql);
-}
-
 
 /* **************************************************************************************************
 /* Publikationen anzeigen meinepublikationen.php
@@ -56,7 +49,7 @@ function get_posts($user_id)
   $sql = "INSERT INTO publikationen (titel, autor) VALUES ('$titel', '$autor');";
   return get_result($sql);
 
-  }
+}
 
 
 ?>

@@ -10,15 +10,16 @@
   require_once('system/security.php');
 
 
+
 //Code für Hochladen
-  if (isset($_POST['hochalden'])) {
-    if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+   if (isset($_POST['upload-submit'])) {
+     if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
 
     if(upload($titel, $autor /*, $datum, $themenbereich*/)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
           $success = true;
           $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
       }else {
-        $error = true;
+      $error = true;
         $error_msg .= "Es gibt ein Problem mit der Datenbank. <br/>";
       }
     }else {
@@ -80,7 +81,6 @@
 <h2> Dokument hochladen</h2>
 <div class="container-fluid">
        <div class="col-md-3 form-wrapper">
-<form id="upload-form" action="hochladen.php" method="post" role="form">
 <div class="form-group">
       <label for="title">Titel</label>
       <input type="text" name="titel" id="title" class="form-control" placeholder="Titel">
@@ -107,11 +107,10 @@
   <input type="file" name="file" id="file" class="custom-file-input">
   <span class="custom-file-control"></span>
 </label>
-<button type="submit" name="upload-submit" id="upload-submit" class="btn btn-default">
+<input type="submit" name="upload-submit" id="upload-submit" class="form-control btn btn-register" value="Hochladen" tabindex="4">
+<!-- <button type="submit" name="upload-submit" id="upload-submit" class="btn btn-default">
                         <span>Hochladen</span>
-                    </button>
-
-
+                    </button> -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
