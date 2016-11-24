@@ -81,9 +81,10 @@
 <h2> Dokument hochladen</h2>
 <div class="container-fluid">
        <div class="col-md-3 form-wrapper">
+         <form id="upload-form" action="hochladen.php" method="post" role="form">
 <div class="form-group">
-      <label for="title">Titel</label>
-      <input type="text" name="titel" id="title" class="form-control" placeholder="Titel">
+      <label for="titel">Titel</label>
+      <input type="text" name="titel" id="titel" class="form-control" placeholder="Titel">
     </div>
     <div class="form-group">
       <label for="autor">Autor</label>
