@@ -8,24 +8,31 @@
 
   require_once('system/data.php');
   require_once('system/security.php');
-
+  $error = false;
+  $error_msg = "";
+  $success = false;
+  $success_msg = "";
 
 
 //Code für Hochladen
    if (isset($_POST['upload-submit'])) {
-     if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+   if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+       $titel = $_POST['titel'];
+       $autor = $_POST['autor'];
+       $datum = $_POST['datum'];
+       $themenbereich = $_POST['themenbereich'];
 
-    if(upload($titel, $autor /*, $datum, $themenbereich*/)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
+    if(upload($titel, $autor, $datum, $themenbereich)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
           $success = true;
           $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
       }else {
       $error = true;
         $error_msg .= "Es gibt ein Problem mit der Datenbank. <br/>";
       }
-    }else {
+    } /* else {
     $error = true;
     $error_msg .= "Bitte überprüfen Sie ihre Eingaben. <br/>";
-      }
+  } */
   }
 
 ?>
