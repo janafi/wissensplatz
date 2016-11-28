@@ -55,6 +55,9 @@ function get_posts($user_id)
 /* Publikation löschen auf meinepublikationen.php
 /* *********************************************************************************************** */
 
-function delete()
+function delete ($titel, $autor, $datum, $themenbereich, $user_id)
+{
+  $sql ="DELETE FROM publikationen (titel, autor, datum, themenbereich, user_id)"
+}
 
 ?>

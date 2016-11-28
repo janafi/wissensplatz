@@ -87,6 +87,7 @@ $html = '';
         echo "<td>", $post['titel'], "</td>";
         echo "<td>", $post['autor'], "</td>";
         echo "<td>", $post['themenbereich'], "</td>";
+      echo  "<td>",  $get ['publikations_id'], "</td>";
         echo "<td>
  <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
  <span class='glyphicon glyphicon-pencil'></span></button>
