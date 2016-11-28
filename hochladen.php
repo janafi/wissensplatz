@@ -22,7 +22,7 @@
        $datum = $_POST['datum'];
        $themenbereich = $_POST['themenbereich'];
 
-    if(upload($titel, $autor, $datum, $themenbereich)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
+    if(upload($titel, $autor, $datum, $themenbereich, $user_id)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
           $success = true;
           $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
       }else {

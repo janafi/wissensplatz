@@ -44,9 +44,9 @@ function get_posts($user_id)
   /* Publikation hochladen auf hochladen.php
   /* *********************************************************************************************** */
 
-  function upload($titel, $autor, $datum, $themenbereich)
+  function upload($titel, $autor, $datum, $themenbereich, $user_id)
   {
-  $sql = "INSERT INTO publikationen (titel, autor, datum, themenbereich, user_id) VALUES ('$titel', '$autor', '$datum', '$themenbereich');";
+  $sql = "INSERT INTO publikationen (titel, autor, datum, themenbereich, user_id) VALUES ('$titel', '$autor', '$datum', '$themenbereich', '$user_id');";
   return get_result($sql);
 
 }
@@ -64,7 +64,7 @@ function get_posts($user_id)
  /* Publikationen anzeigen meinepublikationen.php
  /* *********************************************************************************************** */
 
- function edit($titel, $autor, $datum, $themenbereich)
+ function edit($titel, $autor, $datum, $themenbereich, $publikations_id)
  {
 $sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich' WHERE publikations_id = $publikations_id;";
 return get_result($sql);

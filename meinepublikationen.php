@@ -14,6 +14,24 @@
   loesch_publikation ($loesch_id);
 	}
 
+  if (isset($_POST['speichern'])) {
+  if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+      $titel = $_POST['titel'];
+      $autor = $_POST['autor'];
+      $datum = $_POST['datum'];
+      $themenbereich = $_POST['themenbereich'];
+
+   if(edit($titel, $autor, $datum, $themenbereich, $publikations_id)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
+         $success = true;
+         $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
+     }else {
+     $error = true;
+       $error_msg .= "Es gibt ein Problem mit der Datenbank. <br/>";
+     }
+   }
+ }
+
+
 // Meine Publikationen anzeigen
 
   $post_list = get_posts($user_id);
@@ -78,6 +96,7 @@
       <th>Titel</th>
         <th>Autor</th>
       <th>Themenbereich</th>
+      <th>Datum</th>
       <th class='publikations_id_spalte'>Publikations ID</th>
       <th>Bearbeiten</th>
       <th><span class='glyphicon glyphicon-trash'></span></th>
@@ -92,6 +111,7 @@
         <td><?php echo $post['titel'] ?></td>
         <td><?php echo $post['autor'] ?></td>
         <td><?php echo $post['themenbereich'] ?></td>
+        <td><?php echo $post['datum'] ?></td>
         <td class= 'publikations_id_spalte'><?php echo $post['publikations_id'] ?></td>
         <td>
           <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
@@ -140,7 +160,6 @@
                               <input type="file" name="file" id="file" class="custom-file-input">
                               <span class="custom-file-control"></span>
                             </label>
-                            <input type="submit" name="upload-submit" id="upload-submit" class="form-control btn btn-register" value="Hochladen" tabindex="4">
 
                       <button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
                       <button type='submit' name='speichern' class='btn btn-default'>Speichern</button>
