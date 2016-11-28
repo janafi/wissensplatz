@@ -8,7 +8,7 @@
 
   require_once('system/data.php');
   require_once('system/security.php');
-
+$html = '';
 
 // Meine Publikationen anzeigen
 
@@ -76,8 +76,8 @@
       echo "<th>Titel</th>";
         echo "<th>Autor</th>";
       echo "<th>Themenbereich</th>";
-
-      echo "<th> <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p></th>";
+      echo "<th>Bearbeiten</th>";
+      echo "<th><span class='glyphicon glyphicon-trash'></span></th>";
       echo  "</tr>";
     echo "</thead>";
     echo  "<tbody>";
@@ -87,6 +87,44 @@
         echo "<td>", $post['titel'], "</td>";
         echo "<td>", $post['autor'], "</td>";
         echo "<td>", $post['themenbereich'], "</td>";
+        echo "<td>
+ <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
+ <span class='glyphicon glyphicon-pencil'></span></button>
+        <div class='modal fade' id='myModalBearbeiten' role='dialog'>
+    <div class='modal-dialog'>
+
+
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data='modal'>&times;</button>
+          <h4 class='modal-title'>Publikation Bearbeiten</h4>
+        </div>
+        <div class='modal-body-bearbeiten'>
+          <p>Bearbeghghghiten</p>
+        </div>
+        <div class='modal-footer'>
+          <button type='button' class='btn btn-default' data='modal'>Close</button>
+        </div>
+      </div>
+</div> </td>";
+echo "<td>
+<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalLoeschen'>
+<span class='glyphicon glyphicon-remove'></span></button>
+<div class='modal fade' id='myModalLoeschen' role='dialog'>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-header'>
+  <button type='button' class='close' data-dismiss='modal'>&times;</button>
+  <h4 class='modal-title'>Halt Stopp!</h4>
+</div>
+<div class='modal-body-löschen'>
+  <p>Sind Sie sicher, dass Sie diese Publikation für IMMER löschen möchten?</p>
+</div>
+<div class='modal-footer'>
+  <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+</div>
+</div>
+</div> </td>";
       echo "</tr>";
     }
   echo  "</tbody>";
