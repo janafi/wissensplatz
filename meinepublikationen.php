@@ -108,7 +108,42 @@
                     <p>Bearbeiten</p>
                   </div>
                   <div class='modal-footer'>
-                    <button type='button' class='btn btn-default' data='modal'>Close</button>
+                      <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>"> <!-- Formular, damit es möglich ist, die Seite nochmals zu laden nach dem Bearbeiten-->
+                      <input type="hidden" name="pub_id" value="<?php echo $post['publikations_id'] ?>"> <!-- Die Publikations_id wird versteckt weitergegeben-->
+
+                      <div class="container-fluid">
+                       <div class="form-wrapper">
+                         <form id="upload-form" action="hochladen.php" method="post" role="form">
+                           <div class="form-group">
+                            <label for="titel">Titel</label>
+                            <input type="text" name="titel" id="titel" class="form-control" value="<?php echo $post['titel']?>">
+                          </div>
+                          <div class="form-group">
+                            <label for="autor">Autor</label>
+                            <input type="text" name="autor" id="autor" class="form-control" value="<?php echo $post['autor']?>">
+                          </div>
+                          <div class="form-group">
+                            <label for="Veröffentlichungsdatum">Veröffentlichungsdatum</label>
+                            <input type="date" name="datum" id="datum" class="form-control" value="<?php echo $post['datum']?>">
+                          </div>
+                          <label class="select">Themenbereich</label>
+                              <select class="form-control" name="themenbereich" id="themenbereich">
+                                  <option>Wirtschaft</option>
+                                  <option>Medien</option>
+                                  <option>Drogen</option>
+                                  <option>Finanzen</option>
+                                  <option>Soziales</option>
+                                  <option>Liebe</option>
+                                  <option>MakeAmericaGreatAgain</option>
+                            </select>
+                            <label class="custom-file">
+                              <input type="file" name="file" id="file" class="custom-file-input">
+                              <span class="custom-file-control"></span>
+                            </label>
+                            <input type="submit" name="upload-submit" id="upload-submit" class="form-control btn btn-register" value="Hochladen" tabindex="4">
+
+                      <button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
+                      <button type='submit' name='loeschen' class='btn btn-default'>Speichern</button>
                   </div>
                 </div>
               </div>
