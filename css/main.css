@@ -88,6 +88,14 @@ a {
 }
 
 /** Form styles*/
+.form-group {
+    text-align: left;
+}
+
+.select{
+    text-align: left;
+}
+
 .login-header {
     font-size: 36px;
     font-weight: bold;
