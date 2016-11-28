@@ -143,7 +143,7 @@
                             <input type="submit" name="upload-submit" id="upload-submit" class="form-control btn btn-register" value="Hochladen" tabindex="4">
 
                       <button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
-                      <button type='submit' name='loeschen' class='btn btn-default'>Speichern</button>
+                      <button type='submit' name='speichern' class='btn btn-default'>Speichern</button>
                   </div>
                 </div>
               </div>
