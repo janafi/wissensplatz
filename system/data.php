@@ -57,7 +57,7 @@ function get_posts($user_id)
 
 function delete ($titel, $autor, $datum, $themenbereich, $user_id)
 {
-  $sql ="DELETE FROM publikationen (titel, autor, datum, themenbereich, user_id)"
+  $sql ="DELETE FROM publikationen (titel, autor, datum, themenbereich, user_id) WHERE ('')
 }
 
 ?>
