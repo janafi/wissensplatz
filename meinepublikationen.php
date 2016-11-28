@@ -1,3 +1,4 @@
+Just for Janaaaa
 <?php
   session_start(); //Session starten, oder bereits laufende Session aufrecht halten
   if (!isset($_SESSION['id'])) {
