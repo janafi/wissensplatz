@@ -73,6 +73,8 @@
       echo "<th>Titel</th>";
         echo "<th>Autor</th>";
       echo "<th>Themenbereich</th>";
+
+      echo "<th> <p><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></p></th>";
       echo  "</tr>";
     echo "</thead>";
     echo  "<tbody>";
