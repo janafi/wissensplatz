@@ -8,7 +8,11 @@
 
   require_once('system/data.php');
   require_once('system/security.php');
-$html = '';
+
+  if(isset($_POST['loeschen'])){
+		$loesch_id = $_POST['loeschen'];
+    loesch_publikation($loesch_id);
+	}
 
 // Meine Publikationen anzeigen
 
@@ -88,11 +92,7 @@ $html = '';
         echo "<td>", $post['titel'], "</td>";
         echo "<td>", $post['autor'], "</td>";
         echo "<td>", $post['themenbereich'], "</td>";
-<<<<<<< HEAD
-      echo  "<td>",  $get ['publikations_id'], "</td>";
-=======
         echo "<td class= 'publikations_id_spalte'>", $post['publikations_id'], "</td>";
->>>>>>> 4aa40cd32d391b00758b70ae56d4c834a1db7d28
         echo "<td>
  <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
  <span class='glyphicon glyphicon-pencil'></span></button>
@@ -128,7 +128,7 @@ echo "<td>
 </div>
 <div class='modal-footer'>
 <button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
-  <button type='button' class='btn btn-default' data-dismiss='modal'>Löschen</button>
+  <button type='submit' name='loeschen' value={$post['publikations_id']} class='btn btn-default' data-dismiss='modal'>Löschen</button>
 </div>
 </div>
 </div> </td>";
