@@ -20,10 +20,10 @@ a {
 }
 
 
-.glyphicon glyphicon-search {
-    align-content: flex-end;
-
+.glyphicon {
+  font-size: 20px;
 }
+
 
 .dropzone.dz-clickable {
     cursor: pointer;
@@ -214,9 +214,7 @@ a {
 
 /*Symbole Kontakt*/
 
-.glyphicon {
-    font-size: 40px;
-}
+
 
 /*Abstand nach Row*/
 
@@ -237,18 +235,6 @@ footer {
   height: 40px;
 }
 
-.tooltip.bottom .tooltip-arrow {
-    border-bottom-color: rgba(63,150,152, 0.5);
-}
-
-
-.tooltip.bottom .tooltip-inner {
-    max-width: 350px;
-    /* If max-width does not work, try using width instead */
-    width: 300px;
-    background-color: rgba(63,150,152, 0.5);
-
-}
 
 
 .publikations_id_spalte {

@@ -1,4 +1,3 @@
-Just for Janaaaa
 <?php
   session_start(); //Session starten, oder bereits laufende Session aufrecht halten
   if (!isset($_SESSION['id'])) {
@@ -48,11 +47,12 @@ Just for Janaaaa
     <!--Mobile First-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wissensplatz</title>
+
     <!-- Bootstrap CSS-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Eigenes CSS -->
-    <link href="css/main.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
     <!-- Google Schrift -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic,300italic' rel='stylesheet' type='text/css'>
 </head>
@@ -115,7 +115,7 @@ Just for Janaaaa
         <td><?php echo $post['datum'] ?></td>
         <td class= 'publikations_id_spalte'><?php echo $post['publikations_id'] ?></td>
         <td>
-          <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
+          <button type='button' class='btn btn-info btn-sm' data-toggle='modal' data-target='#myModalBearbeiten'>
             <span class='glyphicon glyphicon-pencil'></span>
           </button>
             <div class='modal fade' id='myModalBearbeiten' role='dialog'>
@@ -170,7 +170,7 @@ Just for Janaaaa
             </div>
           </td>
           <td>
-<button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalLoeschen'>
+<button type='button' class='btn btn-info btn-sm' data-toggle='modal' data-target='#myModalLoeschen'>
 <span class='glyphicon glyphicon-remove'></span></button>
 <div class='modal fade' id='myModalLoeschen' role='dialog'>
 <div class='modal-dialog'>
