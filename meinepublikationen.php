@@ -100,7 +100,7 @@ $html = '';
           <h4 class='modal-title'>Publikation Bearbeiten</h4>
         </div>
         <div class='modal-body-bearbeiten'>
-          <p>Bearbeghghghiten</p>
+          <p>Bearbeiten</p>
         </div>
         <div class='modal-footer'>
           <button type='button' class='btn btn-default' data='modal'>Close</button>
@@ -121,7 +121,8 @@ echo "<td>
   <p>Sind Sie sicher, dass Sie diese Publikation für IMMER löschen möchten?</p>
 </div>
 <div class='modal-footer'>
-  <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+<button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
+  <button type='button' class='btn btn-default' data-dismiss='modal'>Löschen</button>
 </div>
 </div>
 </div> </td>";
