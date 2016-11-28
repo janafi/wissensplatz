@@ -33,9 +33,9 @@ function login($email, $password, $institut = "IMP") // Der Funktion wird die Va
 /* *********************************************************************************************** */
 
 function get_posts($user_id)
-  {
-    $sql = "SELECT autor, titel, themenbereich FROM `publikationen` , themenbereich WHERE user_id = $user_id
-            AND publikationen.themenbereich_id = themenbereich.themenbereich_id;";
+{
+    $sql = "SELECT autor, titel, themenbereich FROM publikationen /* , themenbereich */ WHERE user_id = $user_id /*
+            AND publikationen.themenbereich_id = themenbereich.themenbereich_id*/;";
     return get_result($sql);
   }
 
@@ -45,7 +45,7 @@ function get_posts($user_id)
   /* *********************************************************************************************** */
 
   function upload($titel, $autor)
-  
+
   {
   $sql = "INSERT INTO publikationen (titel, autor) VALUES ('$titel', '$autor');";
   return get_result($sql);
