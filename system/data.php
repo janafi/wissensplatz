@@ -44,9 +44,10 @@ function get_posts($user_id)
   /* Publikation hochladen auf hochladen.php
   /* *********************************************************************************************** */
 
-  function upload($titel, $autor, $datum, $themenbereich)
+  function upload($titel, $autor)
+  
   {
-  $sql = "INSERT INTO publikationen (titel, autor, datum, themenbereich) VALUES ('$titel', '$autor', '$datum', '$themenbereich');";
+  $sql = "INSERT INTO publikationen (titel, autor) VALUES ('$titel', '$autor');";
   return get_result($sql);
 
 }
