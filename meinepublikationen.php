@@ -54,6 +54,9 @@ $html = '';
                     <li><a href="hochladen.php">Hochladen </a></li>
                     <li><a href="meinepublikationen.php">Meine Publikationen</a></li>
                     <li><a href="publisuchen.php">Nach Publikationen suchen</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="index.php">Logout</a></li>
                     <!--<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <a href="#" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-user"></span> User
