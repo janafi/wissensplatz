@@ -34,7 +34,7 @@ function login($email, $password, $institut = "IMP") // Der Funktion wird die Va
 
 function get_posts($user_id)
 {
-    $sql = "SELECT autor, titel, themenbereich FROM publikationen /* , themenbereich */ WHERE user_id = $user_id /*
+    $sql = "SELECT * FROM publikationen /* , themenbereich */ WHERE user_id = $user_id /*
             AND publikationen.themenbereich_id = themenbereich.themenbereich_id*/;";
     return get_result($sql);
   }
@@ -55,7 +55,7 @@ function get_posts($user_id)
 /* Publikation löschen auf meinepublikationen.php
 /* *********************************************************************************************** */
 
- function loesch_publikation($publikations_id){
-   $sql = "DELETE * FROM publikationen WHERE loeschen = $publikations_id ;";
-   return get_result($sql);
+ function loesch_publikation($publikations_id){ /*Publikations_id der angeklickten Zeile wird der Funktion übergeben*/
+   $sql = "DELETE FROM publikationen WHERE publikations_id = $publikations_id ;"; /*jener Zeile mit der entsprechenden Zahl in Publikations_id wird gelöscht*/
+  return get_result($sql);
  }

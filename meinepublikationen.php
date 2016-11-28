@@ -9,9 +9,9 @@
   require_once('system/data.php');
   require_once('system/security.php');
 
-  if(isset($_POST['loeschen'])){
-		$loesch_id = $_POST['loeschen'];
-    loesch_publikation($loesch_id);
+  if(isset($_POST['loeschen'])){ /*Funktion um Zeile zu löschen*/
+	$loesch_id = $_POST['pub_id']; /*Wert (Publikations_id) von entsprechender Zeile wird der Funktion loesch_publikation übergeben*/
+  loesch_publikation ($loesch_id);
 	}
 
 // Meine Publikationen anzeigen
@@ -70,50 +70,51 @@
         </div>
     </nav>
 
+    <div class='container'>
+    <h2>Meine Publikationen</h2>
+    <table class='table'>
+    <thead>
+      <tr>
+      <th>Titel</th>
+        <th>Autor</th>
+      <th>Themenbereich</th>
+      <th class='publikations_id_spalte'>Publikations ID</th>
+      <th>Bearbeiten</th>
+      <th><span class='glyphicon glyphicon-trash'></span></th>
+      </tr>
+    </thead>
+    <tbody>
     <!--Tabelle "Meine Publikationen"-->
     <?php
-    echo "<div class='container'>";
-    echo "<h2>Meine Publikationen</h2>";
-  echo "<table class='table'>";
-    echo  "<thead>";
-      echo  "<tr>";
-      echo "<th>Titel</th>";
-        echo "<th>Autor</th>";
-      echo "<th>Themenbereich</th>";
-      echo "<th class='publikations_id_spalte'>Publikations ID</th>";
-      echo "<th>Bearbeiten</th>";
-      echo "<th><span class='glyphicon glyphicon-trash'></span></th>";
-      echo  "</tr>";
-    echo "</thead>";
-    echo  "<tbody>";
        while($post = mysqli_fetch_assoc($post_list)) {
-
-      echo "<tr>";
-        echo "<td>", $post['titel'], "</td>";
-        echo "<td>", $post['autor'], "</td>";
-        echo "<td>", $post['themenbereich'], "</td>";
-        echo "<td class= 'publikations_id_spalte'>", $post['publikations_id'], "</td>";
-        echo "<td>
- <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
- <span class='glyphicon glyphicon-pencil'></span></button>
-        <div class='modal fade' id='myModalBearbeiten' role='dialog'>
-    <div class='modal-dialog'>
-
-
-      <div class='modal-content'>
-        <div class='modal-header'>
-          <button type='button' class='close' data='modal'>&times;</button>
-          <h4 class='modal-title'>Publikation Bearbeiten</h4>
-        </div>
-        <div class='modal-body-bearbeiten'>
-          <p>Bearbeiten</p>
-        </div>
-        <div class='modal-footer'>
-          <button type='button' class='btn btn-default' data='modal'>Close</button>
-        </div>
-      </div>
-</div> </td>";
-echo "<td>
+    ?>
+      <tr>
+        <td><?php echo $post['titel'] ?></td>
+        <td><?php echo $post['autor'] ?></td>
+        <td><?php echo $post['themenbereich'] ?></td>
+        <td class= 'publikations_id_spalte'><?php echo $post['publikations_id'] ?></td>
+        <td>
+          <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
+            <span class='glyphicon glyphicon-pencil'></span>
+          </button>
+            <div class='modal fade' id='myModalBearbeiten' role='dialog'>
+              <div class='modal-dialog'>
+                <div class='modal-content'>
+                  <div class='modal-header'>
+                    <button type='button' class='close' data='modal'>&times;</button>
+                    <h4 class='modal-title'>Publikation Bearbeiten</h4>
+                  </div>
+                  <div class='modal-body-bearbeiten'>
+                    <p>Bearbeiten</p>
+                  </div>
+                  <div class='modal-footer'>
+                    <button type='button' class='btn btn-default' data='modal'>Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
 <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalLoeschen'>
 <span class='glyphicon glyphicon-remove'></span></button>
 <div class='modal fade' id='myModalLoeschen' role='dialog'>
@@ -127,19 +128,21 @@ echo "<td>
   <p>Sind Sie sicher, dass Sie diese Publikation für IMMER löschen möchten?</p>
 </div>
 <div class='modal-footer'>
-<button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
-  <button type='submit' name='loeschen' value={$post['publikations_id']} class='btn btn-default' data-dismiss='modal'>Löschen</button>
-</div>
-</div>
-</div> </td>";
-      echo "</tr>";
-    }
-  echo  "</tbody>";
-echo "</table>";
-echo  "</div>";
-    ?>
+  <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>"> <!-- Formular, damit die Seite nochmals geladen wird beim Löschen-->
+    <input type="hidden" name="pub_id" value="<?php echo $post['publikations_id'] ?>"> <!-- Die Publikations_id wird versteckt weitergegeben-->
 
-         <!-- Beitrag -->
+    <button type='button' class='btn btn-default' data-dismiss='modal'>Abbrechen</button>
+    <button type='submit' name='loeschen' class='btn btn-default'>Löschen</button>
+  </form>
+</div>
+</div>
+</div> </td>
+      </tr>
+<?php    } ?> <!-- Ende der While Schlaufe -->
+  </tbody>
+</table>
+</div>
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
