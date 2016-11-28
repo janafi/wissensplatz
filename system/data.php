@@ -11,7 +11,7 @@ function get_db_connection() //Funktion zur Verbindungsherstellung zur DB, zentr
 function get_result($sql)
 {
   $db = get_db_connection();
-  echo $sql; // Wenn was nicht funktioniert, wird der SQL String ausgegeben.
+  //echo $sql; // Wenn was nicht funktioniert, wird der SQL String ausgegeben.
   $result = mysqli_query($db, $sql); // Allgemeingültige Funktion, mit der man an Datenbankverbindung einen beliebigen SQL-String senden kann
   mysqli_close($db);
   return $result;
