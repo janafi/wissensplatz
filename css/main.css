@@ -13,12 +13,12 @@ body {
     color: white;
 }
 
-/* auskommentierte Klasse
+
 a {
     color: white;
     text-decoration: none;
 }
-*/
+
 
 .glyphicon glyphicon-search {
     align-content: flex-end;
