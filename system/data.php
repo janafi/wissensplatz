@@ -59,3 +59,13 @@ function get_posts($user_id)
    $sql = "DELETE FROM publikationen WHERE publikations_id = $publikations_id ;"; /*jener Zeile mit der entsprechenden Zahl in Publikations_id wird gelöscht*/
   return get_result($sql);
  }
+
+ /* **************************************************************************************************
+ /* Publikationen anzeigen meinepublikationen.php
+ /* *********************************************************************************************** */
+
+ function edit($titel, $autor, $datum, $themenbereich)
+ {
+$sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich' WHERE publikations_id = $publikations_id;";
+return get_result($sql);
+ }
