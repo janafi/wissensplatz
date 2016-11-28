@@ -241,3 +241,8 @@ footer {
     background-color: rgba(63,150,152, 0.5);
 
 }
+
+
+.publikations_id_spalte {
+    display: none;
+}

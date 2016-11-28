@@ -76,6 +76,7 @@ $html = '';
       echo "<th>Titel</th>";
         echo "<th>Autor</th>";
       echo "<th>Themenbereich</th>";
+      echo "<th class='publikations_id_spalte'>Publikations ID</th>";
       echo "<th>Bearbeiten</th>";
       echo "<th><span class='glyphicon glyphicon-trash'></span></th>";
       echo  "</tr>";
@@ -87,6 +88,7 @@ $html = '';
         echo "<td>", $post['titel'], "</td>";
         echo "<td>", $post['autor'], "</td>";
         echo "<td>", $post['themenbereich'], "</td>";
+        echo "<td class= 'publikations_id_spalte'>", $post['publikations_id'], "</td>";
         echo "<td>
  <button type='button' class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModalBearbeiten'>
  <span class='glyphicon glyphicon-pencil'></span></button>
