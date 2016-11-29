@@ -1,3 +1,21 @@
+<?php
+  session_start(); //Session starten, oder bereits laufende Session aufrecht halten
+  if (!isset($_SESSION['id'])) {
+    header('Location: index.php'); //Wenn die vorherige Session nicht läuft, also keine Anmeldedaten eingegeben wurde, wird zurück auf index.php geleitet. Durch eine solche Session kann Seite abgesichert werden!
+  }else {
+    $user_id = $_SESSION['id'];
+  }
+
+  require_once('system/data.php');
+  require_once('system/security.php');
+
+// Meine Publikationen anzeigen
+
+  $post_all_list = get_all_posts($user_id);
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="De">
 
@@ -47,6 +65,41 @@
             </div>
         </div>
     </nav>
+
+
+    <div class='container'>
+    <h2>Alle Publikationen</h2>
+    <table class='table'>
+    <thead>
+      <tr>
+      <th>Titel</th>
+        <th>Autor</th>
+      <th>Themenbereich</th>
+      <th>Datum</th>
+      <th class='publikations_id_spalte'>Publikations ID</th>
+      <th>Bearbeiten</th>
+      <th><span class='glyphicon glyphicon-trash'></span></th>
+      </tr>
+    </thead>
+    <tbody>
+    <!--Tabelle "Meine Publikationen"-->
+    <?php
+       while($post = mysqli_fetch_assoc($post_all_list)) {
+    ?>
+      <tr>
+        <td><?php echo $post['titel'] ?></td>
+        <td><?php echo $post['autor'] ?></td>
+        <td><?php echo $post['themenbereich'] ?></td>
+        <td><?php echo $post['datum'] ?></td>
+        <td class= 'publikations_id_spalte'><?php echo $post['publikations_id'] ?></td>
+      </tr>
+    <?php    } ?> <!-- Ende der While Schlaufe -->
+    </tbody>
+    </table>
+    </div>
+
+
+
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!--Bootsrtap-->
