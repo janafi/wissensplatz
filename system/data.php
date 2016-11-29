@@ -123,11 +123,17 @@ function get_all_posts($user_id)
  /* Publikationen anzeigen meinepublikationen.php
  /* *********************************************************************************************** */
 
- function edit($titel, $autor, $datum, $themenbereich, $publikations_id)
+/*  function edit($titel, $autor, $datum, $themenbereich, $publikations_id)
  {
 $sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich' WHERE publikations_id = $publikations_id;";
 return get_result($sql);
- }
+ } */
+
+ function edit($titel, $autor, $datum, $themenbereich, $publi_id){
+    $sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich' WHERE publikations_id=$publi_id;";
+/* echo $sql; */
+ return get_result($sql);
+}
 
 
 

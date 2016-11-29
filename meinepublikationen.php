@@ -10,11 +10,11 @@
   require_once('system/security.php');
 
   if(isset($_POST['loeschen'])){ /*Funktion um Zeile zu löschen*/
-	$loesch_id = $_POST['pub_id']; /*Wert (Publikations_id) von entsprechender Zeile wird der Funktion loesch_publikation übergeben*/
+	$loesch_id = $_POST['publikations_id']; /*Wert (Publikations_id) von entsprechender Zeile wird der Funktion loesch_publikation übergeben*/
   loesch_publikation ($loesch_id);
 	}
 
-  if (isset($_POST['speichern'])) {
+  /* if (isset($_POST['speichern'])) {
   if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
       $titel = $_POST['titel'];
       $autor = $_POST['autor'];
@@ -29,7 +29,19 @@
        $error_msg .= "Es gibt ein Problem mit der Datenbank. <br/>";
      }
    }
- }
+ } */
+
+ if(isset($_POST['speichern'])){
+ if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['themenbereich']) /* && !empty($_FILES['post_pdf']['name'])*/){
+        $titel = $_POST['titel'];
+        $autor = $_POST['autor'];
+        $datum = $_POST['datum'];
+        $themenbereich = $_POST['themenbereich'];
+        $publi_id = $_POST['publikations_id'];
+
+        $sql = edit($titel, $autor, $datum, $themenbereich, $publi_id);
+    }
+  }
 
 
 // Meine Publikationen anzeigen
@@ -129,8 +141,9 @@
                     <p>Bearbeiten</p>
                   </div>
                   <div class='modal-footer'>
+
                       <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>"> <!-- Formular, damit es möglich ist, die Seite nochmals zu laden nach dem Bearbeiten-->
-                      <input type="hidden" name="pub_id" value="<?php echo $post['publikations_id'] ?>"> <!-- Die Publikations_id wird versteckt weitergegeben-->
+                      <input type="hidden" name="publikations_id" value="<?php echo $post['publikations_id'] ?>"> <!-- Die Publikations_id wird versteckt weitergegeben-->
 
                       <div class="container-fluid">
                        <div class="form-wrapper">
@@ -148,12 +161,12 @@
                             <input type="date" name="datum" id="datum" class="form-control" value="<?php echo $post['datum']?>">
                           </div>
                           <label class="select">Themenbereich</label>
-                              <select class="form-control" name="themenbereich" id="themenbereich">
+                              <select class="form-control" name="themenbereich" id="themenbereich" value="<?php echo $_POST['themenbereich']?>">
                                   <option>Wirtschaft</option>
                                   <option>Medien</option>
                                   <option>Drogen</option>
                                   <option>Finanzen</option>
-                                  <option>Soziales</option>
+                                  <option selected>Soziales</option>
                                   <option>Liebe</option>
                                   <option>MakeAmericaGreatAgain</option>
                             </select>
