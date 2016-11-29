@@ -32,6 +32,17 @@ function login($email, $password, $institut = "IMP") // Der Funktion wird die Va
 /* Publikationen anzeigen meinepublikationen.php
 /* *********************************************************************************************** */
 
+function get_posts($user_id)
+{
+$sql = "SELECT * FROM publikationen /* , themenbereich / */ WHERE user_id = $user_id;";
+return get_result($sql);
+}
+
+
+/* **************************************************************************************************
+/* Publikationen anzeigen publisuchen.php - Alle Publikationen
+/* *********************************************************************************************** */
+
 function get_all_posts($user_id)
 {
     $sql = "SELECT * FROM publikationen;";

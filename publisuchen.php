@@ -89,6 +89,7 @@
         <td><?php echo $post['autor'] ?></td>
         <td><?php echo $post['themenbereich'] ?></td>
         <td><?php echo $post['datum'] ?></td>
+        <td><?php echo $post ['pdf'] ?></td>
       </tr>
     <?php    } ?> <!-- Ende der While Schlaufe -->
     </tbody>
