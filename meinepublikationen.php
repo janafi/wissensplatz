@@ -194,6 +194,8 @@
 </div> </td>
       </tr>
 <?php    } ?> <!-- Ende der While Schlaufe -->
+
+
   </tbody>
 </table>
 </div>

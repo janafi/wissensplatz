@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="De">
 
@@ -47,10 +48,5 @@
             </div>
         </div>
     </nav>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <!--Bootsrtap-->
-    <script src="js/bootstrap.min.js"></script>
-</body>
 
 </html>
