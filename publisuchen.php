@@ -89,7 +89,6 @@
         <td><?php echo $post['autor'] ?></td>
         <td><?php echo $post['themenbereich'] ?></td>
         <td><?php echo $post['datum'] ?></td>
-        <td class= 'publikations_id_spalte'><?php echo $post['publikations_id'] ?></td>
       </tr>
     <?php    } ?> <!-- Ende der While Schlaufe -->
     </tbody>
