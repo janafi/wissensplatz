@@ -77,8 +77,6 @@
       <th>Themenbereich</th>
       <th>Datum</th>
       <th class='publikations_id_spalte'>Publikations ID</th>
-      <th>Bearbeiten</th>
-      <th><span class='glyphicon glyphicon-trash'></span></th>
       </tr>
     </thead>
     <tbody>
