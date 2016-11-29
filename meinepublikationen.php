@@ -14,15 +14,20 @@
   loesch_publikation ($loesch_id);
 	}
 
+<<<<<<< HEAD
   /* if (isset($_POST['speichern'])) {
+=======
+  if (isset($_POST['speichern']))  {
+>>>>>>> 0637fd9b7f27512e763d15d902902aa60f98ae65
   if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
       $titel = $_POST['titel'];
       $autor = $_POST['autor'];
       $datum = $_POST['datum'];
       $themenbereich = $_POST['themenbereich'];
 
-   if(edit($titel, $autor, $datum, $themenbereich, $publikations_id)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
+   if(edit($titel, $autor, $datum, $themenbereich)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
          $success = true;
+         echo "huhuu";
          $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
      }else {
      $error = true;

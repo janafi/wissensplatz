@@ -123,9 +123,13 @@ function get_all_posts($user_id)
  /* Publikationen anzeigen meinepublikationen.php
  /* *********************************************************************************************** */
 
+<<<<<<< HEAD
 /*  function edit($titel, $autor, $datum, $themenbereich, $publikations_id)
+=======
+ function edit($titel, $autor, $datum, $themenbereich)
+>>>>>>> 0637fd9b7f27512e763d15d902902aa60f98ae65
  {
-$sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich' WHERE publikations_id = $publikations_id;";
+$sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich';";
 return get_result($sql);
  } */
 
@@ -135,6 +139,13 @@ return get_result($sql);
  return get_result($sql);
 }
 
+
+/*   function upload($titel, $autor, $datum, $themenbereich, $user_id, $pdf)
+   {
+   $sql = "INSERT INTO publikationen (titel, autor, datum, themenbereich, user_id, pdf) VALUES ('$titel', '$autor', '$datum', '$themenbereich', '$user_id', '$pdf');";
+   return get_result($sql);
+ }
+*/
 
 
 
