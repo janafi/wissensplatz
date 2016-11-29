@@ -15,14 +15,23 @@
 
 
 //Code für Hochladen
+
    if (isset($_POST['upload-submit'])) {
-   if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+   if (!empty($_POST['titel']) && !empty($_POST['autor']) && !empty($_POST['datum']) && !empty($_POST['themenbereich']) && !empty($_FILES['post_pdf']['name'])){ // Kontrolliert, ob alle Felder ausgefüllt sind
+
        $titel = $_POST['titel'];
        $autor = $_POST['autor'];
        $datum = $_POST['datum'];
        $themenbereich = $_POST['themenbereich'];
+       $pdf = $_FILES ['post_pdf'];
 
-    if(upload($titel, $autor, $datum, $themenbereich, $user_id)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
+       if ( ($_FILES['post_pdf']['name']  != "")){
+  		$pdf = upload_file($_FILES['post_pdf']);
+    	$upload_post = true;
+    }else{
+    	$image = NULL;
+  	}
+    if(upload($titel, $autor, $datum, $themenbereich, $user_id, $pdf)){ // In einer Zeile Daten an DB schicken und gleichzeitig abfrage starten, ob es kelappt hat
           $success = true;
           $success_msg .= "Sie haben die Publikation erfolgreich hochgeladen <br/>";
       }else {
@@ -91,7 +100,7 @@
 <h2> Dokument hochladen</h2>
 <div class="container-fluid">
        <div class="col-md-3 form-wrapper">
-         <form id="upload-form" action="hochladen.php" method="post" role="form">
+         <form id="upload-form" action="hochladen.php" method="post" role="form" enctype="multipart/form-data">
 <div class="form-group">
       <label for="titel">Titel</label>
       <input type="text" name="titel" id="titel" class="form-control" placeholder="Titel">
@@ -115,14 +124,14 @@
                    <option>MakeAmericaGreatAgain</option>
              </select>
              <label class="custom-file">
-  <input type="file" name="file" id="file" class="custom-file-input">
+  <input type="file" name="post_pdf" id="post_pdf" class="custom-file-input">
   <span class="custom-file-control"></span>
 </label>
 <input type="submit" name="upload-submit" id="upload-submit" class="form-control btn btn-register" value="Hochladen" tabindex="4">
 <!-- <button type="submit" name="upload-submit" id="upload-submit" class="btn btn-default">
                         <span>Hochladen</span>
                     </button> -->
-
+</form>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!--Bootsrtap-->

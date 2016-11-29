@@ -44,10 +44,59 @@ function get_posts($user_id)
   /* Publikation hochladen auf hochladen.php
   /* *********************************************************************************************** */
 
-  function upload($titel, $autor, $datum, $themenbereich, $user_id)
+  /*
+  * Create a random string
+  * @author	XEWeb <>
+  * @param $length the length of the string to create
+  * @return $str the string
+  * https://www.xeweb.net/2011/02/11/generate-a-random-string-a-z-0-9-in-php/
+  */
+  function randomString($length = 8) {
+    $str = "";
+    $characters = array_merge(range('A','Z'), range('a','z'), range('0','9'));
+    $max = count($characters) - 1;
+    for ($i = 0; $i < $length; $i++) {
+    	$rand = mt_rand(0, $max);
+    	$str .= $characters[$rand];
+    }
+    return $str;
+  }
+
+  function upload($titel, $autor, $datum, $themenbereich, $user_id, $pdf)
   {
-  $sql = "INSERT INTO publikationen (titel, autor, datum, themenbereich, user_id) VALUES ('$titel', '$autor', '$datum', '$themenbereich', '$user_id');";
+  $sql = "INSERT INTO publikationen (titel, autor, datum, themenbereich, user_id, pdf) VALUES ('$titel', '$autor', '$datum', '$themenbereich', '$user_id', '$pdf');";
   return get_result($sql);
+}
+
+  function upload_file($pdf_file){
+
+     $uploadOk = true;
+   	$upload_path = "pdf/";   // Zielverzeichnis für hochzuladene Datei
+     $max_file_size = 5000000;      // max. Dateigrösse in KB
+
+     // Filetype kontrollieren
+   	if ( ($pdf_file['name']  != "")){
+   		$filetype = $pdf_file['type'];
+   		switch($filetype){
+   			case "application/pdf":
+   				$file_extension = "pdf";
+   		}
+   		// Dateigrösse kontrollieren
+   		$upload_filesize = $pdf_file["size"];
+       if ( $upload_filesize > $max_file_size) {
+         echo "Leider ist die Datei mit $upload_filesize KB zu gross. <br> Sie darf nicht grösser als $max_file_size sein. ";
+         $uploadOk = 0;
+       }
+
+       if ($uploadOk == 0) {
+         echo "Leider konnte die Datei nicht hochgeladen werden.";
+       } else {
+         $pdf_name = time() . randomString() . "." . $file_extension;
+         move_uploaded_file ( $pdf_file['tmp_name'] , $upload_path . $pdf_name );
+   	  }
+   	}
+
+   	return $pdf_name;
 
 }
 
@@ -69,3 +118,9 @@ function get_posts($user_id)
 $sql = "UPDATE publikationen SET titel = '$titel', autor = '$autor', datum = '$datum', themenbereich = '$themenbereich' WHERE publikations_id = $publikations_id;";
 return get_result($sql);
  }
+
+
+
+
+
+?>
